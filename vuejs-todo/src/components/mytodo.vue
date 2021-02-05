@@ -10,8 +10,8 @@
                  <div :class="{'Done':todo.isDone}" @dblclick="markasDone(todo)"  class="inComplete" v-for="(todo,index) in todos"  :key='todo.id'>
                         {{todo.title}}
                          <!-- {{todo.isEdited}}   -->
-                        <i class="fas fa-edit" v-if="!todo.isEdited" @click="EditTodo(index,todo)"></i>
-                        <button v-else @click="updateTodo(index,todo)">Update</button>
+                        <i class="fas fa-edit" v-if="!todo.isEdited && !todo.isDone" @click="EditTodo(index,todo)"></i>
+                        <button v-if="todo.isEdited " @click="updateTodo(index,todo)">Update</button>
                         <i class="fas fa-trash-alt" @click="deleteTodo(index)"></i>
                  </div> 
           </div>
